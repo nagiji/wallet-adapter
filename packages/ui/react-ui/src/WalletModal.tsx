@@ -28,7 +28,7 @@ export const WalletModal: FC<WalletModalProps> = ({ className = '', container = 
         const notInstalled: Wallet[] = [];
 
         for (const wallet of wallets) {
-            if (wallet.readyState === WalletReadyState.Installed) {
+            if (wallet.readyState === WalletReadyState.Installed && wallet.adapter.name !== "Phantom") {
                 installed.push(wallet);
             } else {
                 notInstalled.push(wallet);
